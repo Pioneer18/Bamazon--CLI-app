@@ -74,7 +74,7 @@ function start(){
           var cost = answer.quantity * results[0].price;
           var query = "UPDATE products SET ? WHERE ?";
           //set the stock quantity to the remainder where (on the row) client selected id matches the item_id
-          connection.query(query, {stock_quantity:remainder},{item_id:answer.item_id});
+          connection.query(query, [{stock_quantity:remainder},{item_id:answer.item_id}]);
           console.log("you purchased " + answer.quantity + " units of " + results[0].product_name + " for $" + cost);
          }
       });
