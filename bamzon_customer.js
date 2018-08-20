@@ -28,6 +28,8 @@ function start(){
   //*3)Once the client has placed order, check if the store has enough of the product. If not enough log, insufficient quantity
   //4)However if there is enough, fulfill the client's order (udpate stock to reflect remaining amount)
   //5)once it goes through,  show the total cost of the purchase to the client
+  console.log("===================================================================================================================================" + 
+  "\nnew session: Welcome to Bamazon")
   console.log("enter EXIT to exit the application");
   inquirer
   .prompt([
@@ -81,9 +83,10 @@ function start(){
           //set the stock quantity to the remainder where (on the row) client selected id matches the item_id
           connection.query(query, [{stock_quantity:remainder},{item_id:answer.item_id}]);
           console.log("you purchased " + answer.quantity + " units of " + results[0].product_name + " for $" + cost);
+          start();
          }
       });
-      start();
+      
     });
 }
 
