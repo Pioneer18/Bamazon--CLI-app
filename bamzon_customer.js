@@ -28,6 +28,7 @@ function start(){
   //*3)Once the client has placed order, check if the store has enough of the product. If not enough log, insufficient quantity
   //4)However if there is enough, fulfill the client's order (udpate stock to reflect remaining amount)
   //5)once it goes through,  show the total cost of the purchase to the client
+  console.log("enter EXIT to exit the application");
   inquirer
   .prompt([
       {
@@ -35,6 +36,10 @@ function start(){
           type:"input",
           message:"What is the ID of the product you would like to buy?",
           validate:function(value){
+              if(value === "EXIT"){
+                  //this will terminate the node.js process
+                  process.exit();
+              }
               if(isNaN(value) === false){
                   return true;
               }
