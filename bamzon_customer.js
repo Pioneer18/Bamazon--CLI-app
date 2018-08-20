@@ -52,7 +52,7 @@ function start(){
       {
           name:"quantity",
           type:"input",
-          message:"How many of the prdouct would you like to purchase?",
+          message:"How many units of the prdouct would you like to purchase?",
           validate:function(value){
               if(isNaN(value) === false){
               return true;
