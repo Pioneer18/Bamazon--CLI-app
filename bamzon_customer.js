@@ -30,15 +30,15 @@ function start(){
   //*3)Once the client has placed order, check if the store has enough of the product. If not enough log, insufficient quantity
   //4)However if there is enough, fulfill the client's order (udpate stock to reflect remaining amount)
   //5)once it goes through,  show the total cost of the purchase to the client
-  console.log("===================================================================================================================================" + 
-  "\nnew session: Welcome to Bamazon")
-  console.log("enter EXIT to exit the application");
+  log(chalk.yellow("===================================================================================================================================" + 
+  "\nnew session: Welcome to Bamazon"));
+  log(chalk.cyanBright("enter")+ chalk.red(" EXIT ") + chalk.cyanBright("to exit the application"));
   inquirer
   .prompt([
       {
           name:"item_id",
           type:"input",
-          message:"What is the ID of the product you would like to buy?",
+          message:chalk.blue("What is the ID of the product you would like to buy?"),
           validate:function(value){
               if(value === "EXIT"){
                   //this will terminate the node.js process
@@ -54,7 +54,7 @@ function start(){
       {
           name:"quantity",
           type:"input",
-          message:"How many units of the prdouct would you like to purchase?",
+          message:chalk.blue("How many units of the prdouct would you like to purchase?"),
           validate:function(value){
               if(isNaN(value) === false){
               return true;
@@ -84,7 +84,7 @@ function start(){
           var query = "UPDATE products SET ? WHERE ?";
           //set the stock quantity to the remainder where (on the row) client selected id matches the item_id
           connection.query(query, [{stock_quantity:remainder},{item_id:answer.item_id}]);
-          console.log("you purchased " + answer.quantity + " units of " + results[0].product_name + " for $" + cost);
+          console.log("you purchased " + chalk.red(answer.quantity) + " units of " + chalk.redBright(results[0].product_name) + " for $" + chalk.redBright(cost));
           start();
          }
       });
