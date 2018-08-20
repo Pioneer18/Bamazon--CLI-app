@@ -83,6 +83,7 @@ function start(){
           console.log("you purchased " + answer.quantity + " units of " + results[0].product_name + " for $" + cost);
          }
       });
+      start();
     });
 }
 
