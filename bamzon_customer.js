@@ -72,8 +72,8 @@ function start(){
           //grab the stock quantity from the table and check if it is less than the client's requested amount,
           //if it is alert the client and instruct them to make a new order of the available stock quantity
           if(results[0].stock_quantity < answer.quantity){
-              console.log("There are only " + results[0].stock_quantity + "available units of " + results[0].product_name + "in stock.")
-              console.log("Please make a new purchase not exceeding available inventory.");
+              log(chalk.bold.rgb(255,0,0)("There are only " + results[0].stock_quantity + " available units of " + results[0].product_name + " in stock."));
+              log(chalk.bold.rgb(255,0,0)("Please make a new purchase not exceeding available inventory."));
           }
           else{
           //if there is enough, sell it! UPDATE the database to reflect the purchase
