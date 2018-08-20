@@ -56,27 +56,17 @@ function start(){
       }
   ]).then(function(answer){
       //call the function to query the table
-      queryProducts(answer);
-  });
-}
-
-//=================================================================================
-//Function to query the SELECT needed info from databse table then UPDATE the table
-
-function queryProducts(answer){
-  //query the `bamazon` databse for the product_name, stock_quantity,and price
-  //pull the three columns of info we will need
-  var query = "SELECT product_name,stock_quantity,price FROM products WHERE ?";
-  connection.query(query, {item_id: answer.item_id}, function(err, results){
-      //if the query fails throw an error
-      if(err) throw err;
-      //grab the stock quantity from the table and check if it is less than the client's requested amount,
-      //if it is alert the client and instruct them to make a new order of the available stock quantity
-      if(results[0].stock_quantity < answer.quantity){
-       console.log("There are only " + results[0].stock_quantity + "available units of " + results[0].product_name + "in stock.")
-       console.log("Please make a new purchase not exceeding available inventory.");
-      }
-      else{
+      var query = "SELECT product_name,stock_quantity,price FROM products WHERE ?";
+      connection.query(query, {item_id: answer.item_id}, function(err, results){
+          //if the query fails throw an error
+          if(err) throw err;
+          //grab the stock quantity from the table and check if it is less than the client's requested amount,
+          //if it is alert the client and instruct them to make a new order of the available stock quantity
+          if(results[0].stock_quantity < answer.quantity){
+              console.log("There are only " + results[0].stock_quantity + "available units of " + results[0].product_name + "in stock.")
+              console.log("Please make a new purchase not exceeding available inventory.");
+          }
+          else{
           //if there is enough, sell it! UPDATE the database to reflect the purchase
           //Bind the remaining stock_quantity to variable `remainder` to update the products table
           //Bind the variable `cost` to the total cost of the client's purchase, display this value to the client
@@ -86,9 +76,14 @@ function queryProducts(answer){
           //set the stock quantity to the remainder where (on the row) client selected id matches the item_id
           connection.query(query, {stock_quantity:remainder},{item_id:answer.item_id});
           console.log("you purchased " + answer.quantity + " units of " + results[0].product_name + " for $" + cost);
-      }
-  });
+         }
+      });
+    });
 }
+
+//=================================================================================
+//Function to query the SELECT needed info from databse table then UPDATE the table
+
 
 
 
