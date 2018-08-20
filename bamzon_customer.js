@@ -2,6 +2,8 @@
 //mysql package for querying the sql database
 var inquirer = require("inquirer");
 var mysql = require("mysql");
+var chalk = require("chalk");
+var log = console.log;
 
 //create the mysql connection
 var connection = mysql.createConnection({
