@@ -9,7 +9,7 @@ When the application starts, it prompts the user for two things: 1)`The id of th
 
 <img src="https://media.giphy.com/media/mnqU3Rvv01RkY1eCvZ/giphy.gif" height="400" width="600">
 
-When the `products` table is refreshed in the database manager (Dbeaver), the updated stock quantities reflect the user's purchase order
+When the `products` table is refreshed in the database manager (Dbeaver), the updated stock quantities reflect the user's purchase order. In this case the customer purchased 250 units of item 5 and 375 units of item 10. The stock_quantity of item 5 dropped from 945 to 695, and the stock_quantity of item 10 droped from 1,000 to 625.
 
 <img src="https://media.giphy.com/media/oz5lXRmArozi1j323q/giphy.gif" height="400" width="600">
 
