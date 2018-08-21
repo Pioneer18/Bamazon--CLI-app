@@ -13,5 +13,6 @@ When the `products` table is refreshed in the database manager (Dbeaver), the up
 
 <img src="https://media.giphy.com/media/oz5lXRmArozi1j323q/giphy.gif" height="400" width="600">
 
+If the user orders a quantity of an item that is higher than the stock_quantity, the application will alert the user that their order is too large.
 
-<img src="" height="400" width="600">
+<img src="https://media.giphy.com/media/dtslwnPRjAss9L0QCl/giphy.gif" height="400" width="600">
