@@ -9,8 +9,9 @@ When the application starts, it prompts the user for two things: 1)`The id of th
 
 <img src="https://media.giphy.com/media/mnqU3Rvv01RkY1eCvZ/giphy.gif" height="400" width="600">
 
+When the `products` table is refreshed in the database manager (Dbeaver), the updated stock quantities reflect the user's purchase order
 
-<img src="" height="400" width="600">
+<img src="https://media.giphy.com/media/oz5lXRmArozi1j323q/giphy.gif" height="400" width="600">
 
 
 <img src="" height="400" width="600">
