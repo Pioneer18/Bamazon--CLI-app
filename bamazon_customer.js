@@ -80,11 +80,12 @@ function start(){
           //Bind the remaining stock_quantity to variable `remainder` to update the products table
           //Bind the variable `cost` to the total cost of the client's purchase, display this value to the client
           var remainder = results[0].stock_quantity - answer.quantity;
-          var cost = answer.quantity * results[0].price;
+          var cost = (answer.quantity * results[0].price);
+          var cost = cost.toFixed(2);
           var query = "UPDATE products SET ? WHERE ?";
           //set the stock quantity to the remainder where (on the row) client selected id matches the item_id
           connection.query(query, [{stock_quantity:remainder},{item_id:answer.item_id}]);
-          console.log("you purchased " + chalk.red(answer.quantity) + " units of " + chalk.redBright(results[0].product_name) + " for $" + chalk.redBright(cost));
+          console.log("you purchased " + chalk.red(answer.quantity) + " units of " + chalk.redBright(results[0].product_name) + " for $" + chalk.redBright(parseFloat(cost)));
           start();
          }
       });
